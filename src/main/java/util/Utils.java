@@ -1,7 +1,6 @@
 package util;
 
 import core.BlockMode;
-import core.PaddingMode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.ByteBuffer;
@@ -31,12 +30,10 @@ public class Utils {
             if(start + chunkSize <= end) {
                 buffer = ByteBuffer.allocate(chunkSize);
                 buffer.put(input, start, chunkSize);
-                start += chunkSize;
             }
             else{
-                buffer = buffer.allocate(end - start);
+                buffer = ByteBuffer.allocate(end - start);
                 buffer.put(input, start, end - start);
-                start += chunkSize;
             }
             if(blockMode != blockMode.GCM) {
                 byte[] bytes = getLeftZeroPaddedBytes(buffer.array(), blockSize);
@@ -45,6 +42,7 @@ public class Utils {
             else{
                 chunks.add(buffer.array());
             }
+            start += chunkSize;
         }
         return chunks;
     }
@@ -60,7 +58,7 @@ public class Utils {
                 buffer.put(input, start, blockSize);
             }
             else{
-                buffer = buffer.allocate(end - start);
+                buffer = ByteBuffer.allocate(end - start);
                 buffer.put(input, start, end - start);
 
             }

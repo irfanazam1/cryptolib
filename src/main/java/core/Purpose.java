@@ -5,7 +5,7 @@ public enum Purpose {
     DECRYPT("DECRYPT"),
     SIGN("SIGN"),
     VERIFY("VERIFY");
-    private String value;
+    private final String value;
     Purpose(String value){
         this.value = value;
     }

@@ -7,7 +7,7 @@ public enum PaddingMode {
     PKCS1_ENCRYPT_PADDING("PKCS1Padding"),
     PKCS1_SIGN_PADDING("PKCS1"),
     OAEP_PADDING("OAEPPadding");
-    private String value;
+    private final String value;
     PaddingMode(String value){
         this.value = value;
     }

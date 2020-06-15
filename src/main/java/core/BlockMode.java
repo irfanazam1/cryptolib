@@ -4,7 +4,7 @@ public enum BlockMode {
     ECB("ECB"),
     CTR("CTR"),
     GCM("GCM");
-    private String value;
+    private final String value;
     BlockMode(String value){
         this.value = value;
     }

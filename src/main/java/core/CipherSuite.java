@@ -2,7 +2,6 @@ package core;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
-import java.security.Provider;
 
 public interface CipherSuite {
     KeyAuthorizations getKeyAuthorizations();

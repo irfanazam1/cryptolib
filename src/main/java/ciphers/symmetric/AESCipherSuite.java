@@ -1,6 +1,5 @@
 package ciphers.symmetric;
 
-import com.sun.crypto.provider.SunJCE;
 import core.*;
 import util.Utils;
 
@@ -18,12 +17,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AESCipherSuite implements CipherSuite {
-    private KeyAuthorizations keyAuthorizations;
+    private final KeyAuthorizations keyAuthorizations;
     private Cipher cipher;
     public static final int[] AES_KEY_SIZES = {128, 192, 256};
     public static final int GCM_IV_LENGTH = 12;
     public static final int IV_LENGTH = 16;
-    private Provider provider;
 
     @Override
     public KeyAuthorizations getKeyAuthorizations() {

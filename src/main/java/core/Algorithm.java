@@ -4,7 +4,7 @@ public enum Algorithm {
     RSA("RSA"),
     EC("EC"),
     HMAC("HMAC");
-    private String value;
+    private final String value;
     Algorithm(String value){
         this.value = value;
     }
