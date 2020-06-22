@@ -1,9 +1,10 @@
-#cryptolib
+CryptoLib
+=====
 
 The aim of cryptolib is to provide a modularized way of supporting crypto implementation of various crypto algorithms
 block modes, padding modes, digests, and EcCurves for AES, 3DES, RSA, EC, and HMAC. It provides interfaces and implementation 
-for encryption, signature, and HMAC. It supports both FIPS and non-FIPS standards and provides the way to use SunJCE and Bouncy Castle cryto providers.
-It will also check if certain padding mode, block mode, EcCurve, or digest is supported or not for a cipher operation?
+for encryption, signature, and HMAC. It supports both FIPS and non-FIPS standards and provides the way to use SunJCE and Bouncy Castle crypto providers.
+It will also check if certain padding mode, block mode, EcCurve, or a digest is supported for a cipher operation or not.
 
 Clone
 =====
@@ -14,6 +15,10 @@ Build
 - mvn install
 - mvn clean package install
 - mvn clean package install -DskipTests
+- gradle build
+- ./gradlew or gradlew.bat
+
+
 
 Including in the project
 =====
@@ -24,6 +29,10 @@ Including in the project
              <artifactId>cryptolib</artifactId>
              <version>1.0.0</version>
          </dependency>
+ - Gradle
+      
+      
+      implementation 'cryptolib:cryptolib:1.0.0'
  
  Usage
  ====
