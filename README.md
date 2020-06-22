@@ -15,8 +15,8 @@ Build
 - mvn install
 - mvn clean package install
 - mvn clean package install -DskipTests
-- gradle build
-- ./gradlew or gradlew.bat
+- gradle clean build
+- ./gradlew clean build or gradlew.bat clean build
 
 
 
