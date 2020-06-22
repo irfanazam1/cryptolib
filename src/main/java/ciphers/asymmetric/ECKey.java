@@ -1,6 +1,7 @@
 package ciphers.asymmetric;
 
 import core.CryptoKey;
+import core.EcCurve;
 
 import java.math.BigInteger;
 
@@ -8,6 +9,7 @@ public class ECKey extends CryptoKey {
     private BigInteger xPoint;
     private BigInteger yPoint;
     private BigInteger privateField;
+    private EcCurve ecCurve;
 
     public BigInteger getXPoint() {
         return xPoint;
@@ -37,5 +39,13 @@ public class ECKey extends CryptoKey {
     public int getKeySize() {
         return xPoint != null ? (xPoint.toByteArray().length * 8) : 0;
 
+    }
+
+    public EcCurve getEcCurve() {
+        return ecCurve;
+    }
+
+    public void setEcCurve(EcCurve ecCurve) {
+        this.ecCurve = ecCurve;
     }
 }
