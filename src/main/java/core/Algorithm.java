@@ -3,7 +3,8 @@ public enum Algorithm {
     AES("AES"),
     RSA("RSA"),
     EC("EC"),
-    HMAC("HMAC");
+    HMAC("HMAC"),
+    DES("DESede");
     private final String value;
     Algorithm(String value){
         this.value = value;

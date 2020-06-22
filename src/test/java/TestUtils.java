@@ -12,6 +12,7 @@ public class TestUtils {
         SecureRandom random = new SecureRandom();
         switch (algorithm){
             case AES:
+            case DES:
                 SymmetricKey symmetricKey = new SymmetricKey();
                 byte[] key = new byte[keySize / 8];
                 symmetricKey.setEncodedKey(key);
@@ -20,7 +21,12 @@ public class TestUtils {
                 switch (blockMode){
                     case CBC:
                     case CTR:
-                        iv = new byte[16];
+                        if(algorithm == Algorithm.AES) {
+                            iv = new byte[16];
+                        }
+                        else{
+                            iv = new byte[8];
+                        }
                         break;
                     case GCM:
                         iv = new byte[12];

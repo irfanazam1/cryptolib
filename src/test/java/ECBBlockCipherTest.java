@@ -39,4 +39,16 @@ public class ECBBlockCipherTest extends BlockCipherTestBase {
         peformChipherOperation(keyAuthorizations);
     }
 
+    @Test
+    public void TrippleDESECB128EncryptDecryptNoPaddingTest() throws Exception{
+        KeyAuthorizations keyAuthorizations = TestUtils.getKeyAuthorizations(128, PaddingMode.NO_PADDING, BlockMode.ECB, Purpose.ENCRYPT, Algorithm.DES);
+        peformChipherOperation(keyAuthorizations);
+    }
+
+    @Test
+    public void TrippleDESECB128EncryptDecryptPKCS5PaddingTest() throws Exception{
+        KeyAuthorizations keyAuthorizations = TestUtils.getKeyAuthorizations(128, PaddingMode.PKCS5_PADDING, BlockMode.ECB, Purpose.ENCRYPT, Algorithm.DES);
+        peformChipherOperation(keyAuthorizations);
+    }
+
 }

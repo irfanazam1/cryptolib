@@ -6,12 +6,12 @@ public enum PaddingMode {
     PSS_PADDING("PSS"),
     PKCS1_ENCRYPT_PADDING("PKCS1Padding"),
     PKCS1_SIGN_PADDING("PKCS1"),
+    PKCS5_PADDING("PKCS5Padding"),
     OAEP_PADDING("OAEPPadding");
     private final String value;
     PaddingMode(String value){
         this.value = value;
     }
-
     public static PaddingMode fromValue(String value) throws IllegalArgumentException{
         if(value != null && value.length() > 0) {
             for (PaddingMode typ : values()) {
@@ -22,7 +22,6 @@ public enum PaddingMode {
         }
         throw new IllegalArgumentException("PaddingMode");
     }
-
     public String value(){
         return value;
     }
