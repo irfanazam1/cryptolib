@@ -25,7 +25,7 @@ Including in the project
  - Maven
  
           <dependency>
-             <groupId>cryptlib</groupId>
+             <groupId>cryptolib</groupId>
              <artifactId>cryptolib</artifactId>
              <version>1.0.0</version>
          </dependency>
