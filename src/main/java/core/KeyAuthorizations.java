@@ -13,7 +13,7 @@ public class KeyAuthorizations {
     private Purpose purpose;
     private int macLength;
     private int blockSize;
-    private Provider provider;
+    private Provider provider = new SunJCE();
     public KeyAuthorizations(int keySize, Algorithm algorithm, BlockMode blockMode, PaddingMode paddingMode, Purpose purpose){
         this.keySize = keySize;
         this.algorithm = algorithm;
@@ -87,9 +87,6 @@ public class KeyAuthorizations {
     }
 
     public Provider getProvider() {
-        if(provider == null){
-            provider = new SunJCE();
-        }
         return provider;
     }
 
