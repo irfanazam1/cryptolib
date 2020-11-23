@@ -1,4 +1,4 @@
-package core;
+package cryptolib.core;
 
 import com.sun.crypto.provider.SunJCE;
 
@@ -8,12 +8,14 @@ public class KeyAuthorizations {
     private int keySize;
     private BlockMode blockMode = BlockMode.ECB;
     private PaddingMode paddingMode = PaddingMode.NO_PADDING;
-    private Algorithm algorithm;
+    private Algorithm algorithm = Algorithm.ALGORITHM_UNRECOGNIZED;
     private CryptoKey key;
-    private Purpose purpose;
+    private Purpose purpose = Purpose.PURPOSE_UNRECOGNIZED;
     private int macLength;
     private int blockSize;
     private Provider provider = new SunJCE();
+    private Digest digest = Digest.DIGEST_UNRECOGNIZED;
+    private String curveName;
     public KeyAuthorizations(int keySize, Algorithm algorithm, BlockMode blockMode, PaddingMode paddingMode, Purpose purpose){
         this.keySize = keySize;
         this.algorithm = algorithm;
@@ -92,5 +94,21 @@ public class KeyAuthorizations {
 
     public void setProvider(Provider provider) {
         this.provider = provider;
+    }
+
+    public Digest getDigest(){
+        return digest;
+    }
+
+    public void setDigest(Digest digest){
+        this.digest = digest;
+    }
+
+    public String getCurveName() {
+        return curveName;
+    }
+
+    public void setCurveName(String curveName) {
+        this.curveName = curveName;
     }
 }

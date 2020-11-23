@@ -1,6 +1,6 @@
-package ciphers.asymmetric;
+package cryptolib.ciphers.asymmetric;
 
-import core.CryptoKey;
+import cryptolib.core.CryptoKey;
 
 import java.math.BigInteger;
 

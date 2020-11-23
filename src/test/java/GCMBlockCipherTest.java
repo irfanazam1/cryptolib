@@ -1,5 +1,6 @@
-import core.*;
-import org.junit.jupiter.api.Test;
+import cryptolib.core.*;
+import org.junit.Test;
+
 
 public class GCMBlockCipherTest extends BlockCipherTestBase {
 

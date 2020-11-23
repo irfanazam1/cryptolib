@@ -1,7 +1,7 @@
-package core;
+package cryptolib.core;
 
-import ciphers.symmetric.SymmetricKey;
-import util.Utils;
+import cryptolib.ciphers.symmetric.SymmetricKey;
+import cryptolib.util.Utils;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -30,7 +30,7 @@ public class BlockCipherBase implements CipherSuite {
         if(input != null) {
             return cipher.update(input);
         }
-        return null;
+        return new byte[0];
     }
 
     @Override
@@ -149,7 +149,7 @@ public class BlockCipherBase implements CipherSuite {
     }
 
     protected void checkKeyAuthorizations(){
-        if(keyAuthorizations.getKey() == null || !(keyAuthorizations.getKey() instanceof SymmetricKey)){
+        if(!(keyAuthorizations.getKey() instanceof SymmetricKey)){
             throw new CryptoLibRuntimeException("Symmetric Key is required");
         }
         if(getKeyAuthorizations().getBlockMode() == null){
@@ -208,6 +208,8 @@ public class BlockCipherBase implements CipherSuite {
             case CBC:
             case CTR:
                 return new IvParameterSpec(iv);
+            default:
+                break;
         }
        return null;
     }

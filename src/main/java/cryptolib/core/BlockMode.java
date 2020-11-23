@@ -1,4 +1,4 @@
-package core;
+package cryptolib.core;
 public enum BlockMode {
     CBC("CBC"),
     ECB("ECB"),
@@ -8,7 +8,7 @@ public enum BlockMode {
     BlockMode(String value){
         this.value = value;
     }
-    public static BlockMode fromValue(String value) throws IllegalArgumentException{
+    public static BlockMode fromValue(String value){
         if(value != null && value.length() > 0) {
             for (BlockMode typ : values()) {
                 if (typ.value.equalsIgnoreCase(value)) {

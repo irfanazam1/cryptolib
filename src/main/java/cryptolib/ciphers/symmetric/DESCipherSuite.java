@@ -1,10 +1,9 @@
-package ciphers.symmetric;
+package cryptolib.ciphers.symmetric;
 
-import core.*;
-import org.bouncycastle.jcajce.provider.symmetric.AES;
+
+import cryptolib.core.*;
 
 import javax.crypto.NoSuchPaddingException;
-import java.nio.ByteBuffer;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -13,7 +12,7 @@ import java.util.Arrays;
 
 public class DESCipherSuite extends BlockCipherBase {
     private static final int IV_LENGTH = 8;
-    public static final int[] SUPPORTED_KEY_SIZES = {128};
+    protected static final int[] SUPPORTED_KEY_SIZES = {128};
     public DESCipherSuite(KeyAuthorizations keyAuthorizations)
             throws InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException,
             NoSuchAlgorithmException, NoSuchProviderException {
@@ -23,6 +22,7 @@ public class DESCipherSuite extends BlockCipherBase {
         initCipherSuite(keyAuthorizations);
     }
 
+    @Override
     protected void checkKeyAuthorizations() {
         super.checkKeyAuthorizations();
         if(!validateAesKeySize(keyAuthorizations.getKeySize())){

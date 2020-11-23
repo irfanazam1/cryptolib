@@ -1,4 +1,4 @@
-package core;
+package cryptolib.core;
 
 public enum EcCurve {
     P_224("secp224r1"),
@@ -9,7 +9,7 @@ public enum EcCurve {
     EcCurve(String value){
         this.value = value;
     }
-    public static EcCurve fromValue(String value) throws IllegalArgumentException{
+    public static EcCurve fromValue(String value){
         if(value != null && value.length() > 0) {
             for (EcCurve typ : values()) {
                 if (typ.value.equalsIgnoreCase(value)) {

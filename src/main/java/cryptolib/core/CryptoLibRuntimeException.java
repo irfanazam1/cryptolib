@@ -1,4 +1,4 @@
-package core;
+package cryptolib.core;
 
 public class CryptoLibRuntimeException extends RuntimeException{
 

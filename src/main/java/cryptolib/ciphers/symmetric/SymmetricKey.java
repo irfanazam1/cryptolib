@@ -1,6 +1,6 @@
-package ciphers.symmetric;
+package cryptolib.ciphers.symmetric;
 
-import core.CryptoKey;
+import cryptolib.core.CryptoKey;
 
 public class SymmetricKey extends CryptoKey {
 

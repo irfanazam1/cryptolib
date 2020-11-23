@@ -1,21 +1,18 @@
-package ciphers.symmetric;
+package cryptolib.ciphers.symmetric;
 
-import core.*;
-import util.Utils;
+import cryptolib.core.*;
 
-import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.*;
-import java.security.spec.AlgorithmParameterSpec;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.Arrays;
 
 public class AESCipherSuite extends BlockCipherBase {
     private static final int GCM_IV_LENGTH = 12;
     private static final int IV_LENGTH = 16;
-    public static final int[] SUPPORTED_KEY_SIZES = {128, 192, 256};
+    protected static final int[] SUPPORTED_KEY_SIZES = {128, 192, 256};
     public AESCipherSuite(KeyAuthorizations keyAuthorizations)
             throws InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException,
             NoSuchAlgorithmException, NoSuchProviderException {
@@ -25,6 +22,7 @@ public class AESCipherSuite extends BlockCipherBase {
         initCipherSuite(keyAuthorizations);
     }
 
+    @Override
     protected void checkKeyAuthorizations(){
         super.checkKeyAuthorizations();
         if(!validateAesKeySize(keyAuthorizations.getKeySize())){
@@ -55,6 +53,8 @@ public class AESCipherSuite extends BlockCipherBase {
                     if (symmetricKey.getIv().length != IV_LENGTH) {
                         throw new CryptoLibRuntimeException("IV Length");
                     }
+                    break;
+                default:
                     break;
             }
         }

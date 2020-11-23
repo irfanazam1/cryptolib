@@ -1,4 +1,4 @@
-package core;
+package cryptolib.core;
 
 public enum PaddingMode {
     NO_PADDING("NoPadding"),
@@ -12,7 +12,7 @@ public enum PaddingMode {
     PaddingMode(String value){
         this.value = value;
     }
-    public static PaddingMode fromValue(String value) throws IllegalArgumentException{
+    public static PaddingMode fromValue(String value){
         if(value != null && value.length() > 0) {
             for (PaddingMode typ : values()) {
                 if (typ.value.equalsIgnoreCase(value)) {

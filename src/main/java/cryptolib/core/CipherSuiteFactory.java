@@ -1,7 +1,7 @@
-package core;
+package cryptolib.core;
 
-import ciphers.symmetric.AESCipherSuite;
-import ciphers.symmetric.DESCipherSuite;
+import cryptolib.ciphers.symmetric.AESCipherSuite;
+import cryptolib.ciphers.symmetric.DESCipherSuite;
 
 import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidAlgorithmParameterException;
@@ -11,7 +11,7 @@ import java.security.NoSuchProviderException;
 
 public class CipherSuiteFactory {
     private CipherSuiteFactory(){}
-    public static CipherSuite getCipherSuite(KeyAuthorizations keyAuthorizations)
+    public static CipherSuite getEncryptionSuite(KeyAuthorizations keyAuthorizations)
             throws NoSuchAlgorithmException, NoSuchPaddingException, NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeyException {
         if(keyAuthorizations == null){
             throw new CryptoLibRuntimeException("Empty Key Authorizations");
